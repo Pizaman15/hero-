@@ -5,13 +5,13 @@
 
 
 class Dungeon {
-  constructor() {
+  constructor(hero) {
     this._name = undefined; // pulled from the map if not overridden
     this._namePosition = "top";
     this._nameFromMap = true;
     this._map = undefined;
     this._trim = {bottom: "-", top: "-", sides: "|", corners:["+", "+", "+", "+"]};
-    this._hero = undefined;
+    this._hero = hero;
     // corners: tl -> tr ->bl -> br
   }
 
