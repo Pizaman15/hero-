@@ -11,7 +11,7 @@ class Dungeon {
     this._nameFromMap = true;
     this._map = undefined;
     this._trim = {bottom: "-", top: "-", sides: "|", corners:["+", "+", "+", "+"]};
-    this._hero = hero;
+    this._hero = undefined;
     // corners: tl -> tr ->bl -> br
   }
 
@@ -119,6 +119,6 @@ class Dungeon {
   get trim(){ return this._trim; }
   set trim(obj){ this._trim = Utils.typeCheck(obj, "obj", "Dungeon.trim"); }
 
-  get hero(){ return Utils.undefinedCheck(this._hero, "str", "Dungeon.hero")}
-  set hero(hero){ this._hero = Utils.typeCheck(obj, "str", "Dungeon.hero")}
+  get hero(){return Utils.undefinedCheck(this._hero, "Dungeon.hero"); }
+  set hero(hero){Utils.protectionError("Dungeon", "hero"); }
 }
