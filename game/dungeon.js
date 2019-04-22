@@ -119,6 +119,6 @@ class Dungeon {
   get trim(){ return this._trim; }
   set trim(obj){ this._trim = Utils.typeCheck(obj, "obj", "Dungeon.trim"); }
 
-  get hero(){}
-  set hero(hero){}
+  get hero(){ return Utils.undefinedCheck(this._hero, "str", "Dungeon.hero")}
+  set hero(hero){ this._hero = Utils.typeCheck(obj, "str", "Dungeon.hero")}
 }
