@@ -15,8 +15,8 @@ this._inventory = [];
   set health(health){}
   get location(){return location}
   set location(location){}
-  get damage(){return damage}// need to have the protection error 
-  set damage(damage){}
-  get inventory(){return inventory}// need to have the protection error
-  set inventory(inventory){}
+  get damage(){return Utils.undefinedCheck(this._damage, "Dungeon.hero")}// need to have the protection error
+  set damage(damage){Utils.protectionError("Person", "damage")}
+  get inventory(){return Utils.undefinedCheck(this._inventory, "Dungeon.hero")}// need to have the protection error
+  set inventory(inventory){Utils.protectionError("Person", "inventory")}
 }
