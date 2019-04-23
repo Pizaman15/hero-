@@ -60,3 +60,7 @@ h5{
 #controls{
   float: left;
 }
+
+#updates{
+  clear:both;
+}
