@@ -63,4 +63,9 @@ h5{
 
 #updates{
   clear:both;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  line-height: 12px;
+  float: left;
+  white-space: pre;
 }
