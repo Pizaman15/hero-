@@ -7,16 +7,34 @@ this._location = {x: undefined, y: undefined};
 this._damage = {min: 1, max: 10};
 this._inventory = [];
   }
-  get image(){return image}
-  set image(image){}
-  get name(){return name}
-  set name(name){}
-  get health(){return health}
-  set health(health){}
-  get location(){return location}
-  set location(location){}
-  get damage(){return Utils.undefinedCheck(this._damage, "Dungeon.hero")}// need to have the protection error
-  set damage(damage){Utils.protectionError("Person", "damage")}
-  get inventory(){return Utils.undefinedCheck(this._inventory, "Dungeon.hero")}// need to have the protection error
-  set inventory(inventory){Utils.protectionError("Person", "inventory")}
+
+take(item){
+inventory.push(item);
+}
+
+drop(item){
+inventory.pull(item);
+}
+
+_purge(){
+this._inventory = [];
+}
+  get image(){return image;}
+  set image(image){Utils.typeCheck(image, "str", "person.image");}
+
+  get name(){return name;}
+  set name(name){Utils.typeCheck(name, "str", "Person.name")}
+
+  get health(){return health;}
+  set health(health){Utils.typeCheck(health, "class", "Person.health")}
+
+  get location(){return location;}
+  set location(location){utils.typeCheck(location, "obj", "Person.location")}
+
+  get damage(){return Utils.undefinedCheck(this._damage, "Dungeon.hero");}// need to have the protection error
+  set damage(damage){Utils.protectionError("Person", "damage");}
+
+  get inventory(){return Utils.undefinedCheck(this._inventory, "Dungeon.hero");}// need to have the protection error
+  set inventory(inventory){Utils.protectionError("Person", "inventory");}
+
 }

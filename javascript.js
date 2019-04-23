@@ -41,6 +41,7 @@ function newMap(conditions){
 }
 document.getElementById("newbtn").onclick = function(){ newMap(mapPackage); }
 document.getElementById("blkmap").onclick = function(){ newMap(blankPackage);}
+document.getElementById("updates").onclick = function(){}
 
 /*
 function addRoom(size, map){
