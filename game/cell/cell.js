@@ -11,11 +11,31 @@ class Cell{
     this._roomList = ["room", "hall", "border"];
     this._border = this._isBorder(type);
     this._room = this._isRoom(type);
+    this._inventory = [];
   }
+  take(item){
+  this._inventory.push(item);
+  }
+
+  drop(item){
+    for (var i = 0; i < this._inventory.length; i++) {
+        if(this._inventory[i].name == item){
+            return this._inventory.splice(i)[0];
+      }
+    }
+  }
+
+  _purge(){
+  this._inventory = [];
+  }
+
 
   _isBorder(type){ return type.toLowerCase() === "border"; }
 
   _isRoom(type){ return this._roomList.indexOf(type.toLowerCase()) > -1; }
+
+  get inventory(){ return Utils.undefinedCheck(this._inventory, "Person.inventory");}// need to have the protection error
+  set inventory(inventory){this._inventory = Utils.protectionError("Person", "inventory");}
 
   get name(){ return this._name; }
   set name(str){ this._name = Utils.typeCheck(str, "str", "Cell.name"); }

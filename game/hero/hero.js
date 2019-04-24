@@ -29,7 +29,7 @@ this._inventory = [];
   get name(){ return this._name}
   set name(name){this._name = Utils.typeCheck(name, "str", "Person.name")}
 
- // if current is greatert than max than set currne tO max
+ // if current is greatert than max than set current tO max
   get health(){ return this._health}
   set health(health){
     health = Utils.typeCheck(health, "obj", "Person.health");
@@ -46,28 +46,4 @@ this._inventory = [];
   get inventory(){ return Utils.undefinedCheck(this._inventory, "Person.inventory");}// need to have the protection error
   set inventory(inventory){this._inventory = Utils.protectionError("Person", "inventory");}
 
-}
-
-class Cell{
-  constructor(){
-this._inventory = [];
-  }
-  take(item){
-  this._inventory.push(item);
-  }
-
-  drop(item){
-    for (var i = 0; i < this._inventory.length; i++) {
-        if(this._inventory[i].name == item){
-            return this._inventory.splice(i)[0];
-      }
-    }
-  }
-
-  _purge(){
-  this._inventory = [];
-  }
-
-  get inventory(){ return Utils.undefinedCheck(this._inventory, "Person.inventory");}// need to have the protection error
-  set inventory(inventory){this._inventory = Utils.protectionError("Person", "inventory");}
 }
