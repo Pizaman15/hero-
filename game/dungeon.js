@@ -55,15 +55,19 @@ class Dungeon {
   @param width: {int} the width of the top pannel minus corners
   @param position: {string} if it is the "top" or "bottom"
   @param name: {string} a name to be displayed on the pannel
-  @reutrn: {string} a string decorated with items from _trim
+  @return: {string} a string decorated with items from _trim
   */
   _endTrim(width, position="bottom", name=null){
     return this._startTrim(width, position, name);
   }
 
+  _initHero(heroPackage){
+this.hero = new Hero(heroPackage);
+  }
   /* displayDungeon()
   @return: {string} a string representation of the map property.
   */
+
   displayDungeon(){
     var map = this.map; // to allow for the getter to do the undefined check
     var output = "";

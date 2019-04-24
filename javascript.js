@@ -18,6 +18,10 @@ var blankPackage = {name: "The Blank Map",
                           min:{width: 5, height: 5}},
                     roomDensity: 0,
                     hallDensity: 1.4}
+var heroPackage = {image: "@",
+                   name: "derf",
+                   health: {max:10, current:10},
+                   damage: {min:2, max:5}}
 var dungeon = new Dungeon;
 dungeon.initalizeDungeon(mapPackage);
 ctx.innerHTML = dungeon.displayDungeon();
