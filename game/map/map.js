@@ -110,6 +110,7 @@ class Map{
   }
 
   getOpen(type){
+    type = Utils.whitelist(type, ["room", "hall", "all"], "getOpen");
     var cords = [];
     var hall = false;
     var room = false;

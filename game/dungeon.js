@@ -65,6 +65,11 @@ class Dungeon {
     this._hero = new Hero(heroPackage.image, heroPackage.name, heroPackage.health, heroPackage.damage);
   }
 
+  _placeHero(){
+    var cords = this.map.getOpen("room");
+    dungeon.hero.location(cords[Utils.rand(cords.length - 1);]);
+  }
+
   /* displayDungeon()
   @return: {string} a string representation of the map property.
   */
