@@ -243,8 +243,8 @@ class Utils {
   }
 
 /*
-@param item:{mixed} an item to be checked for type
-@param whitelist: {string} needs item
+@param item:{string} needs to be a string
+@param whitelist: {array} needs item
 @param call = "whitelist" unless your calling somewhere esle
 */
   static whitelist(item, whitelist, call="whitelist"){
@@ -253,7 +253,7 @@ class Utils {
    if(whitelist.includes(item) == true){
      return item;
    }
-   throw new Error("unexpected item " + item + " passed an array to method " + call + ".")
+   throw new Error("unexpected item " + item + " passed to method " + call + ".")
   }
 
 }
