@@ -242,7 +242,11 @@ class Utils {
     return returnArray;
   }
 
-/**/
+/*
+@param item:{mixed} an item to be checked for type
+@param whitelist: {string} needs item
+@param call = "whitelist" unless your calling somewhere esle
+*/
   static whitelist(item, whitelist, call="whitelist"){
    item = this.typeCheck(item, "str", "whitelist");
    whitelist = this.typeCheck(whitelist, "array", "whitelist");
