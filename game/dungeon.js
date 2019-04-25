@@ -62,8 +62,9 @@ class Dungeon {
   }
 
   _initHero(heroPackage){
-this.hero = new Hero(heroPackage);
+    this._hero = new Hero(heroPackage.image, heroPackage.name, heroPackage.health, heroPackage.damage);
   }
+
   /* displayDungeon()
   @return: {string} a string representation of the map property.
   */
