@@ -242,4 +242,14 @@ class Utils {
     return returnArray;
   }
 
+/**/
+  static whitelist(item, whitelist, call="whitelist"){
+   item = this.typeCheck(item, "str", "whitelist");
+   whitelist = this.typeCheck(whitelist, "array", "whitelist");
+   if(whitelist.includes(item) == true){
+     return item;
+   }
+   throw new Error("unexpected item " + item + " passed an array to method " + call + ".")
+  }
+
 }
