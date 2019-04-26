@@ -67,7 +67,7 @@ class Dungeon {
 
   _placeHero(){
     var cords = this.map.getOpen("room");
-    dungeon.hero.location(cords[Utils.rand(cords.length - 1);]);
+    dungeon.hero.location(cords[Utils.rand(cords.length - 1)]);
   }
 
   /* displayDungeon()
@@ -77,7 +77,8 @@ class Dungeon {
   displayDungeon(){
     var map = this.map; // to allow for the getter to do the undefined check
     var output = "";
-
+try{var heroloc = this.hero.location;}
+catch(e){var heroloc = {x:null,y:null}}
     // Breaks access restrictions internally for this and end for name
     if(this.namePosition == "top" && this._name !== undefined ){  // top
       output += this._startTrim(map.width, "top", this.name);
@@ -86,9 +87,10 @@ class Dungeon {
     for (var i = 0; i < map.map.length; i++) { // body y array
       var line = "";
       for (var j = 0; j < map.map[i].length; j++) { // body x array
-        line += map.map[i][j];
-      }
-      output += this._edgeTrim(line);
+        if(heroloc.y == i && heroloc.x == j){line += this.hero.image;}
+        else { line += map.map[i][j];}
+        }
+        output += this._edgeTrim(line);
     }
 
     if(this.namePosition == "bottom" && this._name !== undefined ){  // end

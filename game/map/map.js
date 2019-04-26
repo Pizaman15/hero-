@@ -109,6 +109,11 @@ class Map{
     return new Hall(start, end);
   }
 
+
+
+
+
+
   getOpen(type){
     type = Utils.whitelist(type, ["room", "hall", "all"], "getOpen");
     var cords = [];
