@@ -248,8 +248,8 @@ class Utils {
 @param call = "whitelist" unless your calling somewhere esle
 */
   static whitelist(item, whitelist, call="whitelist"){
-   item = this.typeCheck(item, "str", "whitelist");
-   whitelist = this.typeCheck(whitelist, "array", "whitelist");
+   item = this.typeCheck(item, "str", call);
+   whitelist = this.typeCheck(whitelist, "array", call);
    if(whitelist.includes(item) == true){
      return item;
    }

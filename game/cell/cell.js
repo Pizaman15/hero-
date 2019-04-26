@@ -24,6 +24,11 @@ class Cell{
       }
     }
   }
+  getOpen(){
+if(somthing){
+  return true
+}
+  }
 
   _purge(){
   this._inventory = [];
@@ -49,6 +54,12 @@ class Cell{
 
   get network(){ return this._network; }
   set network(bool){ this._network = Utils.typeCheck(bool, "bool", "Cell.network"); }
+
+  get open(){
+  if(this.type == "room" || this.type == "hall"){return true;}
+  return false;
+}
+
 
   toString(){ return this.name; }
 
