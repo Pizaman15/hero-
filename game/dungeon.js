@@ -67,7 +67,7 @@ class Dungeon {
 
   _placeHero(){
     var cords = this.map.getOpen("room");
-    dungeon.hero.location(cords[Utils.rand(cords.length - 1);]);
+    dungeon.hero.location(cords[Utils.rand(cords.length - 1)]);
   }
 
   /* displayDungeon()
