@@ -109,25 +109,6 @@ class Map{
     return new Hall(start, end);
   }
 
-  open(coordinates, diagonal = true){
-    var openArr = [{x:coordinates.x + 1, y:coordinates.y},{x:coordinates.x-1, y:coordinates.y},
-                   {x:coordinates.x, y:coordinates.y+1},{x:coordinates.x, y:coordinates.y-1}];
-
-    var openArrDiag = [{x:coordinates.x+1, y:coordinates.y+1},{x:coordinates.x-1, y:coordinates.y-1},
-                       {x:coordinates.x+1, y:coordinates.y-1},{x:coordinates.x-1, y:coordinates.y+1}];
-
-    if(diagonal == true){openArr = openArr.concat(openArrDiag);}
-    var returnOpen = []
-    for (var i = 0; i < openArr.length; i++) {
-      // console.log(this.map[openArr[i].y][openArr[i].x].open);
-
-      if(this.map[openArr[i].y][openArr[i].x].open){
-        returnOpen.push(openArr[i]);
-      }
-    }
-    return returnOpen;
-  }
-
   getOpen(type){
     type = Utils.whitelist(type, ["room", "hall", "all"], "getOpen");
     var cords = [];
@@ -145,6 +126,26 @@ class Map{
     }
     return cords;
   }
+
+  open(coordinates, diagonal = true){
+    coordinates = Utils.typeCheck(coordinates, "obj", "map.open");
+    diagonal = Utils.typeCheck(diagonal, "bool", "map.open");
+    var openArr = [{x:coordinates.x + 1, y:coordinates.y},{x:coordinates.x-1, y:coordinates.y},
+      {x:coordinates.x, y:coordinates.y+1},{x:coordinates.x, y:coordinates.y-1}];
+
+      var openArrDiag = [{x:coordinates.x+1, y:coordinates.y+1},{x:coordinates.x-1, y:coordinates.y-1},
+        {x:coordinates.x+1, y:coordinates.y-1},{x:coordinates.x-1, y:coordinates.y+1}];
+
+        if(diagonal == true){openArr = openArr.concat(openArrDiag);}
+        var returnOpen = []
+        for (var i = 0; i < openArr.length; i++) {
+
+          if(this.map[openArr[i].y][openArr[i].x].open){
+            returnOpen.push(openArr[i]);
+          }
+        }
+        return returnOpen;
+      }
 
   /* wipeMap()
   Wipes the map. Breaks access rules by nessicity
