@@ -109,10 +109,24 @@ class Map{
     return new Hall(start, end);
   }
 
+  open(coordinates, diagonal = true){
+    var openArr = [{x:coordinates.x + 1, y:coordinates.y},{x:coordinates.x-1, y:coordinates.y},
+                   {x:coordinates.x, y:coordinates.y+1},{x:coordinates.x, y:coordinates.y-1}];
 
+    var openArrDiag = [{x:coordinates.x+1, y:coordinates.y+1},{x:coordinates.x-1, y:coordinates.y-1},
+                       {x:coordinates.x+1, y:coordinates.y-1},{x:coordinates.x-1, y:coordinates.y+1}];
 
+    if(diagonal == true){openArr = openArr.concat(openArrDiag);}
+    var returnOpen = []
+    for (var i = 0; i < openArr.length; i++) {
+      // console.log(this.map[openArr[i].y][openArr[i].x].open);
 
-
+      if(this.map[openArr[i].y][openArr[i].x].open){
+        returnOpen.push(openArr[i]);
+      }
+    }
+    return returnOpen;
+  }
 
   getOpen(type){
     type = Utils.whitelist(type, ["room", "hall", "all"], "getOpen");
@@ -129,7 +143,6 @@ class Map{
       if(room == true && this._cells[i][j].type == "room"){cords.push({x:j,y:i})};
       }
     }
-
     return cords;
   }
 

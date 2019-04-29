@@ -24,12 +24,7 @@ class Cell{
       }
     }
   }
-  getOpen(){
-if(somthing){
-  return true
-}
-  }
-
+  
   _purge(){
   this._inventory = [];
   }
