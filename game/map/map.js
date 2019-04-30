@@ -127,7 +127,6 @@ class Map{
     return cords;
   }
 
-// wee need to add a line in this funciton
   open(coordinates, diagonal = true){
     coordinates = Utils.typeCheck(coordinates, "obj", "map.open");
     diagonal = Utils.typeCheck(diagonal, "bool", "map.open");
