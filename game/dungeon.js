@@ -73,7 +73,31 @@ class Dungeon {
   /* displayDungeon()
   @return: {string} a string representation of the map property.
   */
+  _keyToMove(key){
+    key = Utils.typeCheck(key, "str", "dungeon._keyToMove");
+    var whitelist = ["1", "2", "3", "4", "6", "7", "8", "9"];
+    Utils.whitelist(key, whitelist, "dungeon._keyToMove");
+    key = parseInt(key);
+    var coordinates = this.hero.location;
+    var move = {
+      // these are the cardinal directions
+      6 :{x:coordinates.x+1, y:coordinates.y},//right
+      4 :{x:coordinates.x-1, y:coordinates.y},//left
+      8 :{x:coordinates.x, y:coordinates.y+1},//up
+      2 :{x:coordinates.x, y:coordinates.y-1},//down
+      // these are the diagonal directions
+      9 :{x:coordinates.x+1, y:coordinates.y+1},//up right
+      1 :{x:coordinates.x-1, y:coordinates.y-1},//down left
+      3 :{x:coordinates.x+1, y:coordinates.y-1},//down right
+      7 :{x:coordinates.x-1, y:coordinates.y+1}//up left
+    }
 
+    return move[key];
+  }
+
+_checkMove(coordinates){
+  return this.map.cell[coordinates.y][coordinates.x].open;
+}
   displayDungeon(){
     var map = this.map; // to allow for the getter to do the undefined check
     var output = "";
@@ -113,9 +137,6 @@ catch(e){var heroloc = {x:null,y:null}}
     this.map.makeMap(mapPackage.room, mapPackage.roomDensity, mapPackage.hallDensity);
   }
 
-  _keyToMove(){
-    
-  }
 
   get name(){ return Utils.undefinedCheck(this._name, "Dungeon.name"); }
   set name(name){ this._name = Utils.typeCheck(name, "str", "Dungeon.name"); }
