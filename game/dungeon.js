@@ -113,6 +113,10 @@ catch(e){var heroloc = {x:null,y:null}}
     this.map.makeMap(mapPackage.room, mapPackage.roomDensity, mapPackage.hallDensity);
   }
 
+  _keyToMove(){
+    
+  }
+
   get name(){ return Utils.undefinedCheck(this._name, "Dungeon.name"); }
   set name(name){ this._name = Utils.typeCheck(name, "str", "Dungeon.name"); }
 
