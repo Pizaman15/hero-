@@ -109,10 +109,36 @@ class Map{
     return new Hall(start, end);
   }
 
+/*
+this is a function to get cords for the hero by subtracting oa adding the
+heros x and y for its location and it also gets the diagonals
+*/
+  heroCords(){
+    var cords = {}
+    cords.left = {x:dungeon.hero.x - 1, y:dungeon.hero.y};
+    cords.right = {x:dungeon.hero.x + 1, y:dungeon.hero.y};
+    cords.up = {x:dungeon.hero.x, y:dungeon.hero.y + 1};
+    cords.down = {x:dungeon.hero.x, y:dungeon.hero.y - 1};
+    cords.dul = {x:dungeon.hero.x - 1, y: dungeon.hero.y + 1};
+    cords.ddl = {x:dungeon.hero.x - 1, y: dungeon.hero.y - 1};
+    cords.dur = {x:dungeon.hero.x + 1, y: dungeon.hero.y + 1};
+    cords.ddr = {x:dungeon.hero.x + 1, y: dungeon.hero.y - 1};
+    cords = {cords.left, cords.right, cords.up, cords.down, cords.dul, cords.ddl, cords.dur, cords.ddr};
 
+    return cords;
+  }
+  open(coordinates, diagonal=true){
+   Utils.typeCheck(coordinates, "obj", "map.open");
+   Utils.typeCheck(diagonal, "bool", "map.open");
+    var open = [];
+    var allcells = [];
+    if(){
 
+    }
+  for (var i = 0; i < 10; i++) {
 
-
+    }
+  }
 
   getOpen(type){
     type = Utils.whitelist(type, ["room", "hall", "all"], "getOpen");
