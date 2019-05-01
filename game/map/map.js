@@ -118,8 +118,6 @@ class Map{
       if( type == "room" || type == "all"){ room = true};
         for (var i = 0; i < this.height; i++) {
         for (var j = 0; j < this.width; j++) {
-          console.log(this.map[i][j]);
-          console.log("i :" + i + " j : "+j);
       if(hall == true && this._cells[i][j].type == "hall"){cords.push({x:j,y:i})};
       if(room == true && this._cells[i][j].type == "room"){cords.push({x:j,y:i})};
       }
@@ -137,7 +135,7 @@ class Map{
         {x:coordinates.x+1, y:coordinates.y-1},{x:coordinates.x-1, y:coordinates.y+1}];
 
         if(diagonal == true){openArr = openArr.concat(openArrDiag);}
-        var returnOpen = []
+        var returnOpen = [];
         for (var i = 0; i < openArr.length; i++) {
 
           if(this.map[openArr[i].y][openArr[i].x].open){
