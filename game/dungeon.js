@@ -67,7 +67,7 @@ class Dungeon {
 
   _placeHero(){
     var cords = this.map.getOpen("room");
-    dungeon.hero.location(cords[Utils.rand(cords.length - 1)]);
+    this.hero.location = cords[Utils.rand(cords.length - 1)];
   }
 
   /* displayDungeon()
@@ -120,8 +120,6 @@ catch(e){var heroloc = {x:null,y:null}}
     if(this.namePosition == "bottom" && this._name !== undefined ){  // end
       output += this._endTrim(map.width, "bottom", this.name);
     }  else { output += this._endTrim(map.width); }
-      this._initHero(heroPackage);
-      this._placeHero();
 
 
     return output;

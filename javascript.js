@@ -41,6 +41,8 @@ document.getElementById("drwbtn").onclick = function(){ drawMap(); }
 */
 function newMap(conditions){
   dungeon.initalizeDungeon(conditions);
+  dungeon._initHero(heroPackage);
+  dungeon._placeHero();
   ctx.innerHTML = dungeon.displayDungeon();
 }
 document.getElementById("newbtn").onclick = function(){ newMap(mapPackage); }
