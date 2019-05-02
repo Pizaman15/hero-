@@ -83,13 +83,13 @@ class Dungeon {
       // these are the cardinal directions
       6 :{x:coordinates.x+1, y:coordinates.y},//right
       4 :{x:coordinates.x-1, y:coordinates.y},//left
-      8 :{x:coordinates.x, y:coordinates.y+1},//up
-      2 :{x:coordinates.x, y:coordinates.y-1},//down
+      8 :{x:coordinates.x, y:coordinates.y-1},//up
+      2 :{x:coordinates.x, y:coordinates.y+1},//down
       // these are the diagonal directions
-      9 :{x:coordinates.x+1, y:coordinates.y+1},//up right
-      1 :{x:coordinates.x-1, y:coordinates.y-1},//down left
-      3 :{x:coordinates.x+1, y:coordinates.y-1},//down right
-      7 :{x:coordinates.x-1, y:coordinates.y+1}//up left
+      9 :{x:coordinates.x+1, y:coordinates.y-1},//up right
+      1 :{x:coordinates.x-1, y:coordinates.y+1},//down left
+      3 :{x:coordinates.x+1, y:coordinates.y+1},//down right
+      7 :{x:coordinates.x-1, y:coordinates.y-1}//up left
     }
 
     return move[key];
@@ -120,12 +120,6 @@ catch(e){var heroloc = {x:null,y:null}}
     if(this.namePosition == "bottom" && this._name !== undefined ){  // end
       output += this._endTrim(map.width, "bottom", this.name);
     }  else { output += this._endTrim(map.width); }
-<<<<<<< HEAD
-=======
-
->>>>>>> dbf274003324a9aaf591e864b8b8f213a0c88057
-
-
     return output;
   }
 
