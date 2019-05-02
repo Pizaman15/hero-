@@ -120,6 +120,10 @@ catch(e){var heroloc = {x:null,y:null}}
     if(this.namePosition == "bottom" && this._name !== undefined ){  // end
       output += this._endTrim(map.width, "bottom", this.name);
     }  else { output += this._endTrim(map.width); }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dbf274003324a9aaf591e864b8b8f213a0c88057
 
 
     return output;

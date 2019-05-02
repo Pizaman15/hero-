@@ -135,7 +135,7 @@ class Map{
         {x:coordinates.x+1, y:coordinates.y-1},{x:coordinates.x-1, y:coordinates.y+1}];
 
         if(diagonal == true){openArr = openArr.concat(openArrDiag);}
-        var returnOpen = []
+        var returnOpen = [];
         for (var i = 0; i < openArr.length; i++) {
 
           if(this.map[openArr[i].y][openArr[i].x].open){
