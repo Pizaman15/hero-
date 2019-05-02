@@ -36,21 +36,11 @@ function keys(key){
                     keys("1");
                     updates.innerHTML = "hero moved southwest";
                     drawMap();
-<<<<<<< HEAD
-                  }
-                }
-              if(e.key == "ArrowDown" || e.key == "2"){
-               var cord = dungeon._keyToMove("2");
-                if(dungeon.map.cell[cord.y][cord.x].open){
-                 dungeon.hero.location = cord;
-                drawMap();
-=======
                     }
                   if(e.key == "ArrowDown" || e.key == "2"){
                     keys("2");
                       updates.innerHTML = "hero moved south";
                       drawMap();
->>>>>>> 6998a040dc6097ab56df20d76148cf90ff8e6623
                   }
                   if(e.key == "PageDown" || e.key == "3"){
                     keys("3");
