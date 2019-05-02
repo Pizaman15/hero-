@@ -23,7 +23,7 @@ var heroPackage = {image: "@",
                    health: {max:10, current:10},
                    damage: {min:2, max:5}}
 
-    document.addEventListener("keyup", actkey);
+document.addEventListener("keyup", actkey);
 function actkey(e){
   if (e.key == "5"){
     
