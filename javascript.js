@@ -30,7 +30,6 @@ function keys(key){
   }
 }
 
-
                 document.addEventListener("keyup", logkey);
                 function logkey(e){
                   if(e.key == "End" || e.key == "1"){
