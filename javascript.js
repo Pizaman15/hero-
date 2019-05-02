@@ -23,69 +23,58 @@ var heroPackage = {image: "@",
                    health: {max:10, current:10},
                    damage: {min:2, max:5}}
 
+function keys(key){
+  var cord = dungeon._keyToMove(key);
+  if(dungeon.map.cell[cord.y][cord.x].open){
+    dungeon.hero.location = cord;
+  }
+}
+
+
                 document.addEventListener("keyup", logkey);
                 function logkey(e){
                   if(e.key == "End" || e.key == "1"){
-                  var cord = dungeon._keyToMove("1");
-                  if(dungeon.map.cell[cord.y][cord.x].open){
-                    dungeon.hero.location = cord;
+                    keys("1");
+                    updates.innerHTML = "hero moved southwest";
                     drawMap();
-                  }
-                  }
+                    }
                   if(e.key == "ArrowDown" || e.key == "2"){
-                    var cord = dungeon._keyToMove("2");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    keys("2");
+                      updates.innerHTML = "hero moved south";
                       drawMap();
                   }
-                }
                   if(e.key == "PageDown" || e.key == "3"){
-                    var cord = dungeon._keyToMove("3");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    keys("3");
+                        updates.innerHTML = "hero moved south east";
                       drawMap();
                   }
-                }
-                  if(e.key == "ArrowLeft" || e.key == "4"){
-                    var cord = dungeon._keyToMove("4");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    if(e.key == "ArrowLeft" || e.key == "4"){
+                      keys("4");
+                      updates.innerHTML = "hero moved west";
                       drawMap();
                   }
-                }
                   if(e.key == "ArrowRight" || e.key == "6"){
-                    var cord = dungeon._keyToMove("6");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                      keys("6");
+                      updates.innerHTML = "hero moved east";
                       drawMap();
                   }
-                }
                   if(e.key == "Home" || e.key == "7"){
-                    var cord = dungeon._keyToMove("7");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    keys("7");
+                      updates.innerHTML = "hero moved north west";
                       drawMap();
                   }
-                }
                   if(e.key == "ArrowUp" || e.key == "8"){
-                    var cord = dungeon._keyToMove("8");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    keys("8");
+                      updates.innerHTML = "hero moved north";
                       drawMap();
                   }
-                }
                   if(e.key == "PageUp" || e.key == "9"){
-                    var cord = dungeon._keyToMove("9");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
+                    keys("9");
+                      updates.innerHTML = "hero moved north east";
                       drawMap();
                   }
                 }
-              //      if(dungeon.map.cell.open == this.hero.location){
-                //      hero = dungeon._keyToMove(und);
-                //    }
-                //    return hero;
-                }
+
 var dungeon = new Dungeon;
 dungeon.initalizeDungeon(mapPackage);
 ctx.innerHTML = dungeon.displayDungeon();
