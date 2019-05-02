@@ -23,6 +23,13 @@ var heroPackage = {image: "@",
                    health: {max:10, current:10},
                    damage: {min:2, max:5}}
 
+document.addEventListener("keyup", actkey);
+function actkey(e){
+  if (e.key == "5"){
+    
+  }
+}
+
 function keys(key){
   var cord = dungeon._keyToMove(key);
   if(dungeon.map.cell[cord.y][cord.x].open){
