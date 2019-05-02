@@ -31,12 +31,12 @@ var heroPackage = {image: "@",
                     dungeon.hero.location = cord;
                     drawMap();
                   }
-                  }
-                  if(e.key == "ArrowDown" || e.key == "2"){
-                    var cord = dungeon._keyToMove("2");
-                    if(dungeon.map.cell[cord.y][cord.x].open){
-                      dungeon.hero.location = cord;
-                      drawMap();
+                }
+              if(e.key == "ArrowDown" || e.key == "2"){
+               var cord = dungeon._keyToMove("2");
+                if(dungeon.map.cell[cord.y][cord.x].open){
+                 dungeon.hero.location = cord;
+                drawMap();
                   }
                 }
                   if(e.key == "PageDown" || e.key == "3"){

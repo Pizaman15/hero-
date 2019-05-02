@@ -91,7 +91,6 @@ class Dungeon {
       3 :{x:coordinates.x+1, y:coordinates.y+1},//down right
       7 :{x:coordinates.x-1, y:coordinates.y-1}//up left
     }
-
     return move[key];
   }
 
