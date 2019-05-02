@@ -27,50 +27,60 @@ function keys(key){
   var cord = dungeon._keyToMove(key);
   if(dungeon.map.cell[cord.y][cord.x].open){
     dungeon.hero.location = cord;
+    return true;
   }
+  return false;
 }
 
                 document.addEventListener("keyup", logkey);
                 function logkey(e){
                   if(e.key == "End" || e.key == "1"){
-                    keys("1");
-                    updates.innerHTML = "hero moved southwest";
-                    drawMap();
-                    }
+                    if(keys("1")) {
+                    updates.innerHTML = dungeon.hero.name + "moved southwest";
+                  }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                  drawMap();
+                }
                   if(e.key == "ArrowDown" || e.key == "2"){
-                    keys("2");
-                      updates.innerHTML = "hero moved south";
-                      drawMap();
+                    if(keys("2")){
+                      updates.innerHTML = dungeon.hero.name + " moved south";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                   if(e.key == "PageDown" || e.key == "3"){
-                    keys("3");
-                        updates.innerHTML = "hero moved south east";
+                    if(keys("3")){
+                        updates.innerHTML = dungeon.hero.name + " moved south east";
+                      }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
                       drawMap();
                   }
                     if(e.key == "ArrowLeft" || e.key == "4"){
-                      keys("4");
-                      updates.innerHTML = "hero moved west";
-                      drawMap();
+                      if(keys("4")){
+                      updates.innerHTML = dungeon.hero.name + " moved west";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                   if(e.key == "ArrowRight" || e.key == "6"){
-                      keys("6");
-                      updates.innerHTML = "hero moved east";
-                      drawMap();
+                      if(keys("6")){
+                      updates.innerHTML = dungeon.hero.name + " moved east";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                   if(e.key == "Home" || e.key == "7"){
-                    keys("7");
-                      updates.innerHTML = "hero moved north west";
-                      drawMap();
+                    if(keys("7")){
+                      updates.innerHTML = dungeon.hero.name + " moved north west";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                   if(e.key == "ArrowUp" || e.key == "8"){
-                    keys("8");
-                      updates.innerHTML = "hero moved north";
-                      drawMap();
+                    if(keys("8")){
+                      updates.innerHTML = dungeon.hero.name + " moved north";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                   if(e.key == "PageUp" || e.key == "9"){
-                    keys("9");
-                      updates.innerHTML = "hero moved north east";
-                      drawMap();
+                    if(keys("9")){
+                      updates.innerHTML = dungeon.hero.name + " moved north east";
+                    }else{updates.innerHTML = dungeon.hero.name + " hit a wall";}
+                    drawMap();
                   }
                 }
 
