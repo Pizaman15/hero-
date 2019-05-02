@@ -23,10 +23,20 @@ var heroPackage = {image: "@",
                    health: {max:10, current:10},
                    damage: {min:2, max:5}}
 
-document.addEventListener("keyup", actkey);
+var heroState = 1;
+
+// 1 is to move
+// 2 is to interact
+// 3 is to attack
 function actkey(e){
-  if (e.key == "5"){
-    
+  if(e.key == 5){heroState ++;}
+  if(heroState > 3){heroState = 1;}
+  if (heroState == 2){
+    console.log(heroState);
+  }
+  if(heroState == 1){logkey(e);}
+  if(heroState == 3){
+    console.log(heroState);
   }
 }
 
@@ -39,7 +49,7 @@ function keys(key){
   return false;
 }
 
-                document.addEventListener("keyup", logkey);
+                document.addEventListener("keyup", actkey);
                 function logkey(e){
                   if(e.key == "End" || e.key == "1"){
                     if(keys("1")) {
