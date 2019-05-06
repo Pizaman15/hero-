@@ -139,6 +139,17 @@ catch(e){var heroloc = {x:null,y:null}}
     this.map.makeMap(mapPackage.room, mapPackage.roomDensity, mapPackage.hallDensity);
   }
 
+  interactStarter(coordinates){
+        coordinates = Utils.typeCheck(coordinates, "obj","dungeon.interactStarter")
+      var item = this.map.cell[coordinates.y][coordinates.x].remove("test");
+      if(item !== undefined){
+        this.hero.take(item);
+        updates.innerHTML = this.hero.name + " picked up" + item.name;
+      }else{
+        updates.innerHTML = "there is nothing there"
+    }
+  }
+
 
   get name(){ return Utils.undefinedCheck(this._name, "Dungeon.name"); }
   set name(name){ this._name = Utils.typeCheck(name, "str", "Dungeon.name"); }

@@ -32,7 +32,7 @@ function actkey(e){
   if(e.key == 5){heroState ++;}
   if(heroState > 3){heroState = 1;}
   if (heroState == 2){
-    console.log(heroState);
+    interactKey(e);
   }
   if(heroState == 1){logkey(e);}
   if(heroState == 3){
@@ -48,6 +48,49 @@ function keys(key){
   }
   return false;
 }
+
+function interact(key){
+  var cord = dungeon._keyToMove(key);
+  return cord;
+}
+
+document.addEventListener("keyup", actkey);
+function interactKey(e){
+  console.log("blah");
+  if(e.key == "End" || e.key == "1"){
+  dungeon.interactStarter(interact("1"));
+  drawMap();
+}
+  if(e.key == "ArrowDown" || e.key == "2"){
+      dungeon.interactStarter(interact("2"));
+    drawMap();
+  }
+  if(e.key == "PageDown" || e.key == "3"){
+      dungeon.interactStarter(interact("3"));
+      drawMap();
+  }
+    if(e.key == "ArrowLeft" || e.key == "4"){
+        dungeon.interactStarter(interact("4"));
+    drawMap();
+  }
+  if(e.key == "ArrowRight" || e.key == "6"){
+      dungeon.interactStarter(interact("6"));
+    drawMap();
+  }
+  if(e.key == "Home" || e.key == "7"){
+      dungeon.interactStarter(interact("7"));
+    drawMap();
+  }
+  if(e.key == "ArrowUp" || e.key == "8"){
+      dungeon.interactStarter(interact("8"));
+    drawMap();
+  }
+  if(e.key == "PageUp" || e.key == "9"){
+      dungeon.interactStarter(interact("9"));
+    drawMap();
+    }
+  }
+
 
                 document.addEventListener("keyup", actkey);
                 function logkey(e){

@@ -1,17 +1,20 @@
-class Item(){
-  constructor(name, image, type, index){
-    this._name = "";
-    this._image = "";
-    this._type = "";
-    this._index = undefined;
+class Item{
+  constructor(image, name, type, index){
+    this._name = Utils.typeCheck(name, "str", "item.name");
+    this._image = Utils.typeCheck(image, "str", "item.image");
+    this._type = Utils.typeCheck(type, "str", "item.type");
+    this._index =  Utils.typeCheck(index, "int", "item.index");
   }
+// make a internal function that does type checkand whitelist
 
-  get(){return this.name}
-  set(name){this.name = Utils.typeCheck(this._name, "str", "cell.item")}
-  get(){return this.image}
-  set(image){this.image =  Utils.typeCheck(this._image, "str", "cell.image" )}
-  get(){return Utils.whitelist(this.type, ["monster", "armor", "weapon", "treasure"])}
-  set(type){this.type = Utils.typeCheck(this._type, "str", "cell.type")}
-  get(){return Utils.undefinedCheck(this.index, "call.index")}
-  set(index){this.index =  Utils.typCheck(this._index, "int", "cell.index")}
+  get name(){return this._name}
+  set name(name){this._name = Utils.typeCheck(name, "str", "item.name")}
+  get image(){return this._image}
+  set image(image){this._image =  Utils.typeCheck(image, "str", "item.image" )}
+  get type(){return Utils.whitelist(this._type, ["monster", "armor", "weapon", "treasure"], "item.type")}
+  set type(type){this._type = Utils.typeCheck(type, "str", "item.type")}
+  get index(){return this._index}
+  set index(index){this._index =  Utils.typCheck(index, "int", "item.index")}
+
+  toString(){return this.image}
 }

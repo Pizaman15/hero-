@@ -13,18 +13,18 @@ class Cell{
     this._room = this._isRoom(type);
     this._inventory = [];
   }
-  take(item){
+  add(item){
   this._inventory.push(item);
   }
 
-  drop(item){
+  remove(item){
     for (var i = 0; i < this._inventory.length; i++) {
         if(this._inventory[i].name == item){
             return this._inventory.splice(i)[0];
       }
     }
   }
-  
+
   _purge(){
   this._inventory = [];
   }
@@ -56,6 +56,17 @@ class Cell{
 }
 
 
-  toString(){ return this.name; }
-
+  toString(){
+  if(this.inventory.length == 0){return this.name;}
+  var itemIndex = 0;
+  var highestValue = 0;
+    for (var i = 0; i < this.inventory.length; i++) {
+      if(this.inventory[i].index > highestValue){
+          itemIndex = i;
+          highestValue = this.inventory[i].index;
+    }
+  }
+  var returnString =  this.inventory[itemIndex] + "";
+  return this.inventory[itemIndex] + "";
+ }
 }
