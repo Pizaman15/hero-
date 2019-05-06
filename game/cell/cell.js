@@ -24,7 +24,7 @@ class Cell{
       }
     }
   }
-  
+
   _purge(){
   this._inventory = [];
   }
